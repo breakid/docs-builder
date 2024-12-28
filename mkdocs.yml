@@ -1,0 +1,152 @@
+# Reference: https://www.mkdocs.org/user-guide/configuration/
+site_name: 'Project Documentation'
+site_url: http://localhost
+site_description: ''
+
+dev_addr: 0.0.0.0:8000
+use_directory_urls: true
+
+#extra:
+#  VARIABLE:
+#extra_css:
+#  - custom.css
+extra_javascript:
+  - https://viewer.diagrams.net/js/viewer-static.min.js
+  - javascripts/drawio-reload.js
+
+theme:
+  name: material
+  features:
+    - navigation.expand
+    # - navigation.indexes
+    # NOTE: The following are desired but seem to cause scroll bars to appear in the sidebar menus
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    - navigation.path
+    # - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+
+  # Light-mode / dark-mode toggle
+  # Reference: https://github.com/spotlessthoughful/mkdocs-terraform/blob/f5cc78bbd978d1b3a48ff1579e9e9b2003bb4ccd/mkdocs.yml
+  palette:
+    # Palette toggle for automatic mode
+    - media: '(prefers-color-scheme)'
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+markdown_extensions:
+  # Adds support for footnotes (without using raw HTML)
+  # Reference: https://www.markdownguide.org/extended-syntax/#footnotes
+  - footnotes
+
+  # Allows local or remote (downloadable) files to be included in your Markdown at arbitrary positions
+  # Reference: https://pypi.org/project/mdx-include/
+  # By default, all paths will be relative to the project root directory
+  - mdx_include
+
+  # Adds call-out blocks (default types: note, attention, caution, danger, error, tip, hint, warning)
+  # Reference: https://facelessuser.github.io/pymdown-extensions/extensions/blocks/plugins/admonition/
+  - pymdownx.blocks.admonition
+
+  # Adds collapsible elements used to hide content
+  # Reference: https://facelessuser.github.io/pymdown-extensions/extensions/details/
+  - pymdownx.blocks.details
+
+  # Requires the hash(es) indicating a header to be followed by a space
+  # Reference: https://facelessuser.github.io/pymdown-extensions/extensions/saneheaders/
+  - pymdownx.saneheaders
+
+  # Enhances block elements (e.g., allows nesting under lists and other block elements, supports line highlighting, etc.)
+  # Reference: https://facelessuser.github.io/pymdown-extensions/extensions/superfences/
+  - pymdownx.superfences
+
+  # Enables task lists (i.e., lists with checkboxes)
+  # Reference: https://facelessuser.github.io/pymdown-extensions/extensions/tasklist/
+  - pymdownx.tasklist
+
+  # Displays an anchor for headers (on hover) that provides a permanent link to the given section
+  # Reference: https://yakworks.github.io/docmark/extensions/permalinks/
+  # Syntax: https://www.mkdocs.org/user-guide/configuration/#markdown_extensions
+  - toc:
+      permalink: true
+      toc_depth: 2-6
+
+plugins:
+  # Allows linking to files by name rather than path, which allows reorganizing content without breaking links
+  # Reference: https://github.com/zachhannum/mkdocs-autolinks-plugin
+  - autolinks
+
+  # Enables embedding interactive drawio diagrams in your documentation
+  - drawio
+
+  # Minify HTML, JS, and CSS for better performance
+  # Reference: https://github.com/byrnereese/mkdocs-minify-plugin?tab=readme-ov-file#setup
+  - minify:
+      # NOTE: Enabling 'minify_html' breaks `mkdocs-drawio` (as of 2024-12-24)
+      #    minify_html: true
+      minify_js: true
+      minify_css: true
+
+  # Automatically generate code reference docs
+  - gen-files:
+      scripts:
+        - scripts/generate_code_reference_pages.py
+  - literate-nav:
+      nav_file: NAV.md
+  - section-index
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            inherited_members: true
+            line_length: 120
+            modernize_annotations: true
+            show_inheritance_diagram: true # Note: "Sponsors Only" as of 2024-08-02
+            show_root_full_path: true
+            show_source: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            summary: true
+          paths: [src] # Search for packages in the `src` folder
+
+  # Automatically identifies and downloads external assets for self-hosting
+  # Reference: https://squidfunk.github.io/mkdocs-material/plugins/privacy/
+  - privacy:
+      assets_fetch: true
+      enabled: true
+
+  # Built-in search plugin (must be explicitly included when overriding `plugins`)
+  - search
+
+nav:
+  - Home: index.md
+  - Terraform:
+      # NOTE: The following are used by `generate_terraform_docs.py` to determine which Terraform directories to
+      # generate documentation for
+      - Projects:
+          - load_balancer: terraform/load_balancer.md
+      - Modules:
+          - virtual_machine: terraform/modules/virtual_machine.md
+          - vpc: terraform/modules/vpc.md
+  # Include `literate-nav` for automatically generated code reference files
+  - Code Reference: reference/

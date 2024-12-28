@@ -1,0 +1,11 @@
+# Directories
+.cache
+.ruff_cache
+.venv
+site
+
+# Files
+.dockerignore
+.gitignore
+compose.yaml
+Dockerfile

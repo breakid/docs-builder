@@ -1,0 +1,23 @@
+---
+services:
+  docs:
+    build: .
+    image: docs-builder:local
+    volumes:
+      - .:/build
+
+  builder:
+    extends:
+      service: docs
+    volumes:
+      - .:/build
+    command: build
+
+  server:
+    extends:
+      service: docs
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/build
+    command: serve

@@ -1,0 +1,50 @@
+# Note: Must also install "graphviz" using OS package manager
+# Experimental Use
+# diagrams==0.23.4
+
+# Used to enhance logging in Python scripts
+loguru>=0.7.2
+
+# Allows local or remote (downloadable) files to be included in your Markdown at arbitrary positions
+mdx_include>=1.4.2
+
+# Generates static site content from Markdown source files
+mkdocs>=1.5.3
+
+# Allows linking to pages by name rather than relative path
+# Enables reorganizing content without updating links
+mkdocs-autolinks-plugin>=0.7.1
+
+# Enables embedding interactive drawio diagrams in your documentation
+mkdocs-drawio
+
+# Dynamically generates documentation pages; used in combination with mkdocstrings
+mkdocs-gen-files>=0.5.0
+
+# Specify the navigation in Markdown instead of YAML; used to dynamically add code reference pages from mkdocstrings
+mkdocs-literate-nav>=0.6.1
+
+# Adds support for variables and macros by transforming Markdown pages into Jinja2 templates
+mkdocs-macros-plugin>=1.0.5
+
+# Material theme for mkdocs; includes more functionality and customization than the 'readthedocs' theme
+# Natively supports `git-authors` and `git-revision-date-localized`
+mkdocs-material>=9.5.14
+
+# Allows HTML, JS, and CSS files to be minified for better performance
+mkdocs-minify-plugin>=0.8.0
+
+# Makes clickable section headers lead to an index page
+mkdocs-section-index>=0.3.9
+
+# Automatically generates code reference docs from docstrings
+mkdocstrings[python]>=0.18
+
+# Used to automatically run tasks before git commits
+pre-commit
+
+# Used for code highlighting
+Pygments>=2.17.2
+
+# Adds better support for call-outs, fences, etc.
+pymdown-extensions>=10.7

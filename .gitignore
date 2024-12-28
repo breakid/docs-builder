@@ -1,0 +1,10 @@
+# Directories
+.cache
+.ruff_cache
+.venv
+docs/reference
+site
+
+# Files
+.vscode/launch.json
+docs/assets/images/terraform_*

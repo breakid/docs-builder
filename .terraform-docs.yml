@@ -1,0 +1,49 @@
+---
+# Reference: https://terraform-docs.io/user-guide/configuration/
+
+content: |-
+  {{ .Header }}
+
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Resources }}
+
+  {{ .Modules }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Footer }}
+
+formatter: 'markdown table'
+
+output:
+  file: README.md
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+settings:
+  anchor: true
+  color: true
+  default: true
+  description: true
+  escape: true # ?
+  hide-empty: true
+  html: false # ?
+  indent: 2
+  lockfile: true # ?
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
+
+sort:
+  # Sort inputs by name but show required ones first
+  by: required
+  enabled: true

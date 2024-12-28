@@ -1,0 +1,89 @@
+{
+    "[json]": {
+        // No official standard; four is more readable, while two is popular and allows more content to be displayed
+        // Visual Studio Code seems to prefer four
+        "editor.tabSize": 4
+    },
+    "[markdown]": {
+        // No official standard; however, four spaces seems to be fairly common
+        //   - https://itsfoss.com/markdown-indentation/
+        //   - https://www.markdownguide.org/basic-syntax/#adding-elements-in-lists
+        //   - https://www.markdownguide.org/basic-syntax/#code-blocks
+        "editor.tabSize": 4,
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        // Source: https://peps.python.org/pep-0008/#indentation
+        "editor.tabSize": 4,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        },
+    },
+    "[shellscript]": {
+        // No official standard; however, I think four provides better readability
+        //   - https://github.com/easybash/bash-coding-style-guide
+        "editor.tabSize": 4
+    },
+    "[terraform]": {
+        // Source: https://developer.hashicorp.com/terraform/language/style#code-formatting
+        "editor.tabSize": 2
+    },
+    "[terraform-vars]": {
+        // Source: https://developer.hashicorp.com/terraform/language/style#code-formatting
+        "editor.tabSize": 2
+    },
+    "[toml]": {
+        // No official standard; however, both of the following use two spaces in their examples
+        //   - https://github.com/toml-lang/toml
+        //   - https://toml.io/en/v0.3.0
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        // Source: https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#indentation
+        "editor.tabSize": 2
+    },
+    "comment-divider.mainHeaderFiller": "=",
+    // insert spaces when pressing Tab
+    "editor.insertSpaces": true,
+    "editor.rulers": [
+        120
+    ],
+    "editor.wordWrapColumn": 120,
+    "evenBetterToml.formatter.alignComments": true,
+    "evenBetterToml.formatter.alignEntries": true,
+    "evenBetterToml.formatter.allowedBlankLines": 2,
+    "evenBetterToml.formatter.arrayAutoExpand": true,
+    "evenBetterToml.formatter.columnWidth": 120,
+    "evenBetterToml.formatter.indentEntries": true,
+    "evenBetterToml.formatter.indentString": "  ",
+    "evenBetterToml.formatter.inlineTableExpand": true,
+    "evenBetterToml.formatter.reorderArrays": true,
+    "evenBetterToml.formatter.reorderKeys": true,
+    "evenBetterToml.formatter.trailingNewline": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
+    "markdown.updateLinksOnFileMove.enabled": "always",
+    "markdown.updateLinksOnFileMove.include": [
+        "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+        "**/*.{jpg,jpe,jpeg,png,bmp,gif,ico,webp,avif,tiff,svg,mp4}",
+        "**/*.pdf",
+        "**/*.json",
+        "**/*.csv"
+    ],
+    "markdown.validate.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "yaml.format.enable": true,
+    "yaml.format.printWidth": 120,
+    "yaml.format.singleQuote": true,
+    "cSpell.words": [
+        "inframap",
+        "markdownlint",
+        "mkdocs",
+        "mkdocstrings",
+        "pymdownx",
+        "venv"
+    ],
+}

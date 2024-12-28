@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "aaron-bond.better-comments",
+        "davidanson.vscode-markdownlint",
+        "donjayamanne.githistory",
+        "jeff-hykin.better-dockerfile-syntax",
+        "oderwat.indent-rainbow",
+        "redhat.vscode-yaml",
+        "shd101wyy.markdown-preview-enhanced",
+        "stackbreak.comment-divider",
+        "streetsidesoftware.code-spell-checker",
+        "takumii.markdowntable",
+        "usernamehw.errorlens",
+        "yzhang.markdown-all-in-one"
+    ]
+}
